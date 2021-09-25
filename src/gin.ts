@@ -1,6 +1,6 @@
-import Item from "./item";
+import TaxItem from "./TaxItem";
 
-export default class Gin extends Item {
+export default class Gin extends TaxItem {
 
     constructor(description: string, price: number) {
         super('Gin', description, price); 

@@ -53,3 +53,15 @@ test('should create a order and print a message - em inglês', async () => {
 
     expect(message).toBe(expected);
 });
+
+test('should create a order and print a message - em espanhol', async () => {
+    const order = new Order(new MessageDataFileFS());
+    order.addItem(new Beer("Brahma", 10));
+    order.addItem(new Juice("DelValle", 8));
+    order.addItem(new Gin("Tangueray", 180));
+    order.addItem(new Water("Minalba", 0));
+    const expected = 'El total fue R$198, los impuestos fueron R$56.6. ¡Gracias por tu pedido!';
+    const message = await order.printMessage('es');
+
+    expect(message).toBe(expected);
+});
